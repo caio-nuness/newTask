@@ -7,7 +7,7 @@ import { deleteTask } from './app/useCases/tasks/deleteTask';
 
 export const routes = Router();
 
-routes.get('/task', listTasks);
+routes.get('/tasks', listTasks);
 
 routes.post('/task/create', createTask);
 
