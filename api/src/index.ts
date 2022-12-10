@@ -1,26 +1,32 @@
+import * as dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
+
 import { routes } from './routes';
 
+dotenv.config();
+const PASSWORD_DB = process.env.PASSWORD_DB;
+const USER_DB = process.env.USER_DB;
+const NAME_DB = process.env.NAME_DB;
+const PORT = process.env.PORT;
 
 mongoose.set('strictQuery', false);
 
-async function startApp() {
-  await mongoose.connect('mongodb://localhost:27017');
-  console.log('mongodb as conected!');
+mongoose.connect(`mongodb+srv://${USER_DB}:${PASSWORD_DB}@${NAME_DB}/test`)
+  .then(() => {
+    console.log('mongodb as conected!');
 
-  const port = 3000;
-  const app = express();
-  app.use(express.json());
+    const app = express();
 
-  app.use(routes);
+    app.use(express.json());
+    app.use(routes);
 
-  app.listen(port, () => {
-    console.log(`Server is running in http://localhost/${ port }`);
-  });
-}
+    app.listen(PORT, () => {
+      console.log(`Server is running in http://localhost/${PORT}`);
+    });
+  })
+  .catch((err) => console.error(err));
 
-startApp();
 
 
 
