@@ -11,6 +11,6 @@ routes.get('/tasks', listTasks);
 
 routes.post('/task/create', createTask);
 
-routes.put('/task/update/:taskId', updateTasks);
+routes.patch('/task/update/:taskId', updateTasks);
 
 routes.delete('/task/delete/:taskId', deleteTask);
