@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.routes = void 0;
+const express_1 = require("express");
+const createTask_1 = require("./app/useCases/tasks/createTask");
+const listTasks_1 = require("./app/useCases/tasks/listTasks");
+const updateTask_1 = require("./app/useCases/tasks/updateTask");
+const deleteTask_1 = require("./app/useCases/tasks/deleteTask");
+exports.routes = (0, express_1.Router)();
+exports.routes.get('/tasks', listTasks_1.listTasks);
+exports.routes.post('/task/create', createTask_1.createTask);
+exports.routes.patch('/task/update/:taskId', updateTask_1.updateTasks);
+exports.routes.delete('/task/delete/:taskId', deleteTask_1.deleteTask);

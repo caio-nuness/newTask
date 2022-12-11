@@ -1,0 +1,13 @@
+"use strict";
+exports.__esModule = true;
+exports.routes = void 0;
+var express_1 = require("express");
+var createTask_1 = require("./app/useCases/tasks/createTask");
+var listTasks_1 = require("./app/useCases/tasks/listTasks");
+var updateTask_1 = require("./app/useCases/tasks/updateTask");
+var deleteTask_1 = require("./app/useCases/tasks/deleteTask");
+exports.routes = (0, express_1.Router)();
+exports.routes.get('/tasks', listTasks_1.listTasks);
+exports.routes.post('/task/create', createTask_1.createTask);
+exports.routes.patch('/task/update/:taskId', updateTask_1.updateTasks);
+exports.routes["delete"]('/task/delete/:taskId', deleteTask_1.deleteTask);
