@@ -1,4 +1,5 @@
 # path and documents it is ignorated
 
 node_modules
+dist
 .env
