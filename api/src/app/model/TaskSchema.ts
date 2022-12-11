@@ -5,6 +5,12 @@ export const TaskSchema = model('task', new Schema({
     type: String,
     required: true,
   },
+  description:{
+    type: String,
+    required: false,
+    default: 'Nenhuma descrição informada.'
+
+  },
   completed: {
     type: Boolean,
     required: true,

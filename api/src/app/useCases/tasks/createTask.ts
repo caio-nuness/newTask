@@ -3,12 +3,13 @@ import { TaskSchema } from '../../model/TaskSchema';
 
 export async function createTask (req:Request, res:Response) {
 
-  const { title, completed, createAt } = req.body;
+  const { title, description, completed, createAt  } = req.body;
 
   try {
 
     const taskCreated = await TaskSchema.create({
       title,
+      description,
       completed,
       createAt
     });
